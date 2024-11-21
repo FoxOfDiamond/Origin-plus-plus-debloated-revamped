@@ -1,0 +1,6 @@
+{
+	"type":"origins:inventory",
+	"title":"Bag",
+	"key":"key.origins.primary_active",
+	"drop_on_death":false
+}

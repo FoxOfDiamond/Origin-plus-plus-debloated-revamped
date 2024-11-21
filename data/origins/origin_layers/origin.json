@@ -1,0 +1,10 @@
+{
+	"allow_random":true,
+	"origins":[
+		"origins-plus-plus:blob",
+		"origins-plus-plus:flea",
+		"origins-plus-plus:pixie",
+		"origins-plus-plus:ravager",
+		"origins-plus-plus:wanderer"
+	]
+}

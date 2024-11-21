@@ -1,0 +1,18 @@
+{
+	"type":"origins:attribute",
+	"modifiers":[
+		{
+			"id":"quickfix",
+			"attribute":"minecraft:generic.max_health",
+			"amount":10,
+			"operation":"add_value"
+		},
+		{
+			"id":"quickfix",
+			"attribute":"minecraft:generic.armor",
+			"amount":6,
+			"operation":"add_value"
+		}
+	],
+	"update_health":true
+}

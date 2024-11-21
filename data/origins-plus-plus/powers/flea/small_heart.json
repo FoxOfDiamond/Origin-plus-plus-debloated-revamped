@@ -1,0 +1,9 @@
+{
+	"type":"origins:attribute",
+	"modifier":{ "id":"quickfix",
+		"attribute":"minecraft:generic.max_health",
+		"amount":-12,
+		"operation":"add_value"
+	},
+	"update_health":true
+}

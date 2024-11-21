@@ -1,0 +1,12 @@
+{
+	"type":"origins:multiple",
+	"knockback_resistance":{
+		"type":"origins:attribute",
+	"modifier":{ "id":"quickfix",
+			"attribute":"minecraft:generic.knockback_resistance",
+			"amount":999,
+			"operation":"add_value"
+		}
+	}
+}
+
