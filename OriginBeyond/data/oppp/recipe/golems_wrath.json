@@ -1,0 +1,41 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " ##",
+        " i#",
+        "i  "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:iron_block"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "id": "minecraft:stone_axe",
+        "count": 1,
+        "components": {
+            "custom_name": "{\"text\":\"Golem's Wrath\",\"italic\":false,\"color\":\"gold\"}",
+            "lore": [
+                "{\"text\":\"Deals upwards knockback\",\"italic\":false,\"color\":\"dark_purple\"}"
+            ],
+            "unbreakable": {
+                "show_in_tooltip": true
+            },
+            "attribute_modifiers":{
+                "modifiers":[
+                    {
+                        "type":"generic.attack_damage","amount":9,"id":"1732373077420","operation":"add_value","slot":"mainhand"
+                    },
+                    {
+                        "type":"generic.attack_speed","amount":-3.2,"id":"1732374212782","operation":"add_value","slot":"mainhand"
+                    }
+                ],
+                "show_in_tooltip": false
+            },
+            "custom_model_data": 1
+        }
+    }
+}

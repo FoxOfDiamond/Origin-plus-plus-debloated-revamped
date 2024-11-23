@@ -1,0 +1,145 @@
+{
+    "type": "apoli:multiple",
+    "charge":{
+        "type": "apoli:action_over_time",
+        "interval": 6,
+        "entity_action": {
+            "type": "apoli:modify_inventory",
+            "item_condition": {
+                "type": "apoli:and",
+                "conditions": [
+                    {
+                        "type": "apoli:ingredient",
+                        "ingredient":{
+                            "item": "minecraft:tinted_glass"
+                        }
+                        
+                    },
+                    {
+                        "type": "apoli:custom_data",
+                        "nbt":"{overhaul:prometheus_lantern}"
+                    }
+                ]
+            },
+            "item_action": {
+                "type": "apoli:and",
+                "actions": [
+                    {
+                        "type": "apoli:modify",
+                        "modifier": "overhaul:add_damage_10m"
+                    },
+                    {
+                        "type": "apoli:if_else_list",
+                        "actions": [
+                            {
+                                "action": {
+                                    "type": "apoli:and",
+                                    "actions": [
+                                        {
+                                            "type": "apoli:if_else",
+                                            "if_action": {
+                                                "type": "apoli:modify",
+                                                "modifier": "overhaul:reset_damage"
+                                            },
+                                            "condition": {
+                                                "type": "apoli:custom_data",
+                                                "nbt":"{overhaul_lantern_charge:3}",
+                                                "inverted": true
+                                            }
+                                        },
+                                        {
+                                            "type": "apoli:if_else_list",
+                                            "actions": [
+                                                {
+                                                    "action": {
+                                                        "type": "apoli:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "apoli:merge_custom_data",
+                                                                "nbt":"{overhaul_lantern_charge:3}"
+                                                            },
+                                                            {
+                                                                "type": "apoli:modify",
+                                                                "modifier": "overhaul:custom_model_data_4"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "condition": {
+                                                        "type": "apoli:custom_data",
+                                                        "nbt":"{overhaul_lantern_charge:2}"
+                                                    }
+                                                },
+                                                {
+                                                    "action": {
+                                                        "type": "apoli:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "apoli:merge_custom_data",
+                                                                "nbt":"{overhaul_lantern_charge:2}"
+                                                            },
+                                                            {
+                                                                "type": "apoli:modify",
+                                                                "modifier": "overhaul:custom_model_data_3"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "condition": {
+                                                        "type": "apoli:custom_data",
+                                                        "nbt":"{overhaul_lantern_charge:1}"
+                                                    }
+                                                },
+                                                {
+                                                    "action": {
+                                                        "type": "apoli:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "apoli:merge_custom_data",
+                                                                "nbt":"{overhaul_lantern_charge:1}"
+                                                            },
+                                                            {
+                                                                "type": "apoli:modify",
+                                                                "modifier": "overhaul:custom_model_data_2"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "condition": {
+                                                        "type": "apoli:custom_data",
+                                                        "nbt":"{overhaul_lantern_charge:0}"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "apoli:durability",
+                                    "compare_to": 1000,
+                                    "comparison": "=="
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "no_place":{
+        "type": "apoli:prevent_block_place",
+        "item_condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:ingredient",
+                    "ingredient":{
+                        "item": "minecraft:tinted_glass"
+                    }
+                    
+                },
+                {
+                    "type": "apoli:custom_data",
+                    "nbt":"{overhaul:prometheus_lantern}"
+                }
+            ]
+        }
+    }
+}

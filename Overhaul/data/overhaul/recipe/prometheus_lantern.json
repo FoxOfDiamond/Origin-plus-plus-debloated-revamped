@@ -38,7 +38,10 @@
             "lore":[
                 "{\"text\":\"Creates life from clay\",\"italic\":false}"
             ],
-            "custom_data":"{\"overhaul\":\"prometheus_lantern\"}",
+            "custom_data":"{\"overhaul\":\"prometheus_lantern\",\"overhaul_lantern_charge\":0}",
+            "max_stack_size":1,
+            "damage":1000,
+            "max_damage":1000,
             "custom_model_data":1
         }
     }
