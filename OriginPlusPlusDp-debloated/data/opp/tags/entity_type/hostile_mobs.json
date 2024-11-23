@@ -1,0 +1,12 @@
+{
+  "values":[
+    "#opp:hostile_nether_mobs",
+    "#opp:hostile_overworld_mobs",
+    "minecraft:drowned",
+    "minecraft:elder_guardian",
+    "minecraft:endermite",
+    "minecraft:guardian",
+    "minecraft:shulker",
+    "minecraft:silverfish"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+	"powers":[
+		"opp:ravager/attributes",
+		"opp:ravager/axe_strength",
+		"opp:ravager/bad_omen_on_death",
+		"opp:ravager/clumsy",
+		"opp:ravager/dash",
+		"opp:ravager/exhaust",
+		"opp:ravager/fear",
+		"opp:ravager/hard_hitting",
+		"opp:ravager/heavy_armor",
+		"opp:ravager/heavy_footed",
+		"opp:ravager/immense",
+		"opp:ravager/ram",
+		"opp:ravager/ravager_resource",
+		"opp:ravager/slowness",
+		"opp:ravager/team",
+		"opp:ravager/thick_skin",
+		"opp:ravager/vexy"
+	],
+	"icon":{
+		"id":"minecraft:saddle"},
+	"impact":2
+}

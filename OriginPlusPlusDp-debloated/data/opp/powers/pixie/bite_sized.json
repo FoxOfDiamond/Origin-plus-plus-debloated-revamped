@@ -1,0 +1,84 @@
+{
+	"type":"origins:multiple",
+	"name":"Bite sized",
+	"description":"You are tiny!",
+	"size":{
+		"type":"origins:action_on_callback",
+		"entity_action_lost":{
+			"type":"origins:execute_command",
+			"command":"scale reset"
+		},
+		"entity_action_gained": {
+			"type":"apoli:and",
+			"actions":[{
+				"type": "apoli:apply_effect",
+				"effects": [
+					{
+						"id":"minecraft:glowing",
+						"show_particles":false,
+						"show_icon":false,
+						"duration": 999999,
+						"amplifier": 0
+					},
+					{
+						"id":"minecraft:luck",
+						"show_particles":false,
+						"show_icon":false,
+						"duration": 999999,
+						"amplifier": 2
+					},
+					{
+						"id":"minecraft:speed",
+						"duration": 999999,
+						"show_particles":false,
+						"show_icon":false,
+						"amplifier":0
+					}
+				]
+			},
+			{
+				"type":"origins:execute_command",
+			"command":"function opp:pixie/size"
+			}
+		]	
+		},
+		"entity_action_respawned": {
+			"type": "apoli:apply_effect",
+			"effects": [
+				{
+					"id":"minecraft:glowing",
+					"show_particles":false,
+					"show_icon":false,
+					"duration": 999999,
+					"amplifier": 0
+				},
+				{
+					"id":"minecraft:luck",
+					"show_particles":false,
+					"show_icon":false,
+					"duration": 999999,
+					"amplifier": 2
+				},
+				{
+					"id":"minecraft:speed",
+					"duration": 999999,
+					"show_particles":false,
+					"show_icon":false,
+					"amplifier":0
+				}
+			]
+		}
+	},
+	"attribute_modifiers":{
+		"type":"origins:attribute",
+		"modifiers":[
+			{
+				"id":"quickfix",
+				"attribute":"minecraft:generic.max_health",
+				"operation":"add_value",
+				"amount":-10
+			}
+		],
+		"update_health":true
+	}
+}

@@ -6,6 +6,6 @@
     "minecraft:honey_bottle",
     "minecraft:suspicious_stew",
 
-    "#origins-plus-plus-modded-support:ignore_diet"
+    "#opp-modded-support:ignore_diet"
   ]
 }

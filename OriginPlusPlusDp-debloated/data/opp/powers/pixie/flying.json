@@ -1,0 +1,32 @@
+{
+	"type":"origins:active_self",
+	"name":"WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE",
+	"description":"You can do a huge dash",
+	"entity_action":{
+		"type":"origins:and",
+		"actions":[
+			{
+				"type":"origins:add_velocity",
+				"z":1.5,
+				"space":"local"
+			},
+			{
+				"type":"origins:add_velocity",
+				"y":0.25
+			},
+			{
+				"type":"origins:play_sound",
+				"sound":"minecraft:block.respawn_anchor.charge"
+			},
+			{
+				"type":"origins:execute_command",
+				"command":"function opp:pixie/particles"
+			}
+		]
+	},
+	"cooldown":500,
+	"hud_render":{
+		"bar_index":4
+	},
+	"key":"key.origins.primary_active"
+}

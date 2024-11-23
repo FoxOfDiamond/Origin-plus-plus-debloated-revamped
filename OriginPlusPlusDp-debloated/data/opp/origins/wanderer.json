@@ -1,0 +1,13 @@
+{
+	"powers":[
+		"opp:wanderer/bag",
+		"opp:wanderer/cross",
+		"opp:wanderer/healing_warmth",
+		"opp:wanderer/leather",
+		"opp:wanderer/night",
+		"opp:wanderer/trade"
+	],
+	"icon":{
+		"id":"minecraft:soul_lantern"},
+	"impact":1
+}

@@ -1,0 +1,27 @@
+{
+	"powers":[
+		"origins:no_shield",
+		"opp:blob/amethyst_eater",
+		"opp:blob/blob_creature",
+		"opp:blob/colour",
+		"opp:blob/electrical_immunity",
+		"opp:blob/frozen_feet",
+		"opp:blob/heal",
+		"opp:blob/health_bar",
+		"opp:blob/magic",
+		"opp:blob/melting_hands",
+		"opp:blob/nether_weakness",
+		"opp:blob/no_lungs",
+		"opp:blob/paranoia",
+		"opp:blob/respawn",
+		"opp:blob/side_step",
+		"opp:blob/stacking_attacks",
+		"opp:blob/storage",
+		"opp:blob/strength",
+		"opp:blob/water_effects",
+		"opp:blob/wisdom"
+	],
+	"icon":{
+		"id":"minecraft:popped_chorus_fruit"},
+	"impact":2
+}

@@ -1,0 +1,20 @@
+{
+	"powers":[
+		"origins:climbing",
+		"origins:arthropod",
+		"opp:flea/antivore",
+		"opp:flea/bloodsucking",
+		"opp:flea/disable_regen",
+		"opp:flea/diseased_bite",
+		"opp:flea/inch_tall",
+		"opp:flea/jockey",
+		"opp:flea/jump",
+		"opp:flea/nimble",
+		"opp:flea/regen",
+		"opp:flea/small_heart",
+		"opp:flea/small_stomach"
+	],
+	"icon":{
+		"id":"minecraft:glowstone_dust"},
+	"impact":3
+}

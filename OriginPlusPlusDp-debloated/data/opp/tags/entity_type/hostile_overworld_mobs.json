@@ -1,0 +1,11 @@
+{
+  "values":[
+    "#opp:base_mobs",
+    "#opp:spiders",
+    "minecraft:husk",
+    "minecraft:phantom",
+    "minecraft:slime",
+    "minecraft:stray",
+    "minecraft:zombie_villager"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+	"type":"origins:conditioned_attribute",
+	"modifier":{
+		"id":"aaa",
+		"attribute":"minecraft:generic.attack_damage",
+		"operation":"add_value",
+		"amount":6
+	},
+	"condition":{
+		"type":"origins:equipped_item",
+		"equipment_slot":"mainhand",
+		"item_condition":{
+			"type":"origins:ingredient",
+			"ingredient":{
+				"tag":"opp:axes"
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+  "values":[
+    "#opp:diamond_armour",
+    "#opp:heavy_armour",
+    "#opp:iron_armour",
+    "#opp:leather_armour",
+    "minecraft:chainmail_boots",
+    "minecraft:chainmail_chestplate",
+    "minecraft:chainmail_helmet",
+    "minecraft:chainmail_leggings",
+    "minecraft:turtle_helmet"
+  ]
+}

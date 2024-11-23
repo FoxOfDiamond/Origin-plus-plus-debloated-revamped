@@ -1,0 +1,18 @@
+{
+	"name":"Pixie",
+	"description":"A small mischievous magical creature",
+	"powers":[
+		"origins:elytra",
+		"origins:fall_immunity",
+		"origins:vegetarian",
+
+		"opp:pixie/bite_sized",
+		"opp:pixie/flying",
+		"opp:pixie/pixie_dust",
+		"opp:pixie/hover"
+
+	],
+	"icon":{
+		"id":"minecraft:glowstone_dust"},
+	"impact":2
+}
