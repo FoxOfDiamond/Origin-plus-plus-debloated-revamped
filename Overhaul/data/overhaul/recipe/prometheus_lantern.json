@@ -1,0 +1,45 @@
+
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:lantern"
+        },
+        {
+            "item": "minecraft:clay"
+        },
+        {
+            "item": "minecraft:carved_pumpkin"
+        },
+        {
+            "item": "minecraft:skeleton_skull"
+        },
+        {
+            "item": "minecraft:emerald_block"
+        },
+        {
+            "item": "minecraft:honey_bottle"
+        },
+        {
+            "item": "minecraft:chain"
+        },
+        {
+            "item": "minecraft:chain"
+        },
+        {
+            "item": "minecraft:chicken"
+        }
+    ],
+    "result": {
+        "id": "minecraft:tinted_glass",
+        "count": 1,
+        "components":{
+            "custom_name":"{\"text\":\"Prometheus' Lantern\",\"italic\":false,\"color\":\"dark_red\"}",
+            "lore":[
+                "{\"text\":\"Creates life from clay\",\"italic\":false}"
+            ],
+            "custom_data":"{\"overhaul\":\"prometheus_lantern\"}",
+            "custom_model_data":1
+        }
+    }
+}
