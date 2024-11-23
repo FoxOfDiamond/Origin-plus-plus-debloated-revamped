@@ -1,0 +1,13 @@
+{
+    "name":"Bottled fire",
+    "description":"You gain the ability to capture fire in a flask",
+    "type": "apoli:action_on_callback",
+    "entity_action_added": {
+        "type": "apoli:execute_command",
+        "command": "/recipe give @s overhaul:bottle_of_fire"
+    },
+    "entity_action_lost": {
+        "type": "apoli:execute_command",
+        "command": "/recipe take @s overhaul:bottle_of_fire"
+    }
+}

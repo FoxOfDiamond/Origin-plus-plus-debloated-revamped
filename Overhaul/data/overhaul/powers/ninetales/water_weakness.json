@@ -1,0 +1,343 @@
+{
+    "name":"Wet fur",
+    "description":"Water makes you extremely uncomfortable. Avoid at all cost",
+    "type": "apoli:multiple",
+    "wet_bar":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1000,
+        "start_value": 0,
+        "hud_render": {
+            "sprite_location": "overhaul:resource_bar.png",
+            "bar_index": 2,
+            "condition": {
+                "type": "apoli:resource",
+                "resource": "*:*_wet_bar",
+                "compare_to": 0,
+                "comparison": ">"
+            },
+            "order": 1
+        }
+    },
+    "water_blocks":{
+        "type": "apoli:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type":"apoli:fluid_height",
+            "fluid": "minecraft:water",
+            "compare_to": 0,
+            "comparison": ">"
+        },
+        "entity_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:*_wet_bar",
+                    "operation": "add",
+                    "change": 50
+                },
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:ninetales/heat_bar_heat",
+                    "operation": "add",
+                    "change": -2
+                }
+            ]
+        }
+    },
+    "passive_dry":{
+        "type": "apoli:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:*_wet_bar",
+            "operation": "add",
+            "change": -3
+        }
+    },
+    "respawn-wet":{
+        "type": "apoli:action_on_callback",
+        "entity_action_respawned": {
+            "type": "apoli:change_resource",
+            "operation": "set",
+            "resource": "*:*_wet_bar",
+            "change": 0
+        }
+    },
+    "nether_dry":{
+        "type": "apoli:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "apoli:dimension",
+            "dimension": "minecraft:the_nether"
+        },
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:*_wet_bar",
+            "operation": "add",
+            "change": -5
+        }
+    },
+    "biome":{
+        "type": "apoli:action_over_time",
+        "interval":1,
+        "condition": {
+            "type":"apoli:biome",
+            "condition": {
+                "type": "apoli:in_tag",
+                "tag": "is_water"
+            }
+        },
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:*_wet_bar",
+            "operation": "add",
+            "change": 1
+        }
+    },
+    "on_fire_dry":{
+        "type": "apoli:action_over_time",
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:on_fire"
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_wet_bar",
+                    "compare_to": 0,
+                    "comparison": ">"
+                }
+            ]
+        },
+        "interval": 1,
+        "entity_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:*_wet_bar",
+                    "operation": "add",
+                    "change": -3
+                },
+                {
+                    "type": "apoli:chance",
+                    "chance": 0.05,
+                    "success_action": {
+                        "type": "apoli:if_else",
+                        "condition": {
+                            "type":"apoli:or",
+                            "inverted": true,
+                            "conditions": [
+                                {
+                                    "type": "origins:in_block_anywhere",
+                                    "block_condition": {
+                                        "type": "apoli:in_tag",
+                                        "tag": "fire"
+                                    }
+                                },
+                                {
+                                    "type":"apoli:fluid_height",
+                                    "fluid": "minecraft:water",
+                                    "compare_to": 0,
+                                    "comparison": ">"
+                                }
+                            ]
+                        },
+                        "if_action": {
+                            "type": "apoli:and",
+                            "actions": [
+                                {
+                                    "type": "apoli:extinguish"
+                                },
+                                {
+                                    "type": "apoli:change_resource",
+                                    "resource": "*:*_wet_bar",
+                                    "operation": "add",
+                                    "change": -20
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "in_lava_dry":{
+        "type": "apoli:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type":"apoli:fluid_height",
+            "fluid": "minecraft:water",
+            "compare_to": 0,
+            "comparison": ">"
+        },
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:*_wet_bar",
+            "operation": "add",
+            "change": -10
+        }
+    },
+    "in_fire_dry":{
+        "type": "apoli:action_over_time",
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type":"apoli:or",
+                    "conditions": [
+                        {
+                            "type": "origins:in_block_anywhere",
+                            "block_condition": {
+                                "type": "apoli:in_tag",
+                                "tag": "fire"
+                            }
+                        },
+                        {
+                            "type": "origins:block_in_radius",
+                            "radius": 3,
+                            "block_condition": {
+                                "type": "apoli:in_tag",
+                                "tag": "campfires"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_wet_bar",
+                    "compare_to": 0,
+                    "comparison": ">"
+                }
+            ]
+        },
+        "interval": 1,
+        "entity_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:*_wet_bar",
+                    "operation": "add",
+                    "change": -2
+                },
+                {
+                    "type": "apoli:chance",
+                    "chance": 0.04,
+                    "success_action": {
+                        "type": "apoli:if_else",
+                        "condition": {
+                            "type": "origins:in_block_anywhere",
+                            "block_condition": {
+                                "type": "apoli:in_tag",
+                                "tag": "fire"
+                            }
+                        },
+                        "if_action": {
+                            "type": "apoli:and",
+                            "actions": [
+                                {
+                                    "type": "apoli:execute_command",
+                                    "command": "/fill ~ ~ ~ ~ ~1 ~ air replace #fire"
+                                },
+                                {
+                                    "type": "apoli:change_resource",
+                                    "resource": "*:*_wet_bar",
+                                    "operation": "add",
+                                    "change": -50
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "slow-500":{
+        "type": "apoli:action_over_time",
+        "condition": {
+            "type": "apoli:resource",
+            "compare_to": 0,
+            "resource": "*:*_wet_bar",
+            "comparison": ">"
+        },
+        "interval": 1,
+        "entity_action": {
+            "type": "apoli:apply_effect",
+            "effect": {
+                "id": "minecraft:slowness",
+                "amplifier":2,
+                "duration": 5
+            }
+        }
+    },
+    "slow-1000":{
+        "type": "apoli:action_over_time",
+        "condition": {
+            "type": "apoli:resource",
+            "compare_to": 500,
+            "resource": "*:*_wet_bar",
+            "comparison": ">"
+        },
+        "interval": 1,
+        "entity_action": {
+            "type": "apoli:apply_effect",
+            "effect": {
+                "id": "minecraft:slowness",
+                "amplifier":3,
+                "duration": 5
+            }
+        }
+    },
+    "water_cold-500":{
+        "type": "apoli:action_over_time",
+        "condition": {
+            "type": "apoli:resource",
+            "compare_to": 500,
+            "resource": "*:*_wet_bar",
+            "comparison": ">"
+        },
+        "interval": 1,
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:ninetales/heat_bar_heat",
+            "change": -2,
+            "operation": "add"
+        }
+    },
+    "water_cold-250":{
+        "type": "apoli:action_over_time",
+        "condition": {
+            "type": "apoli:resource",
+            "compare_to": 250,
+            "resource": "*:*_wet_bar",
+            "comparison": ">"
+        },
+        "interval": 1,
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:ninetales/heat_bar_heat",
+            "change": -2,
+            "operation": "add"
+        }
+    },
+    "water_cold-0":{
+        "type": "apoli:action_over_time",
+        "condition": {
+            "type": "apoli:resource",
+            "compare_to": 0,
+            "resource": "*:*_wet_bar",
+            "comparison": ">"
+        },
+        "interval": 1,
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:ninetales/heat_bar_heat",
+            "change": -1,
+            "operation": "add"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "apoli:multiple",
+    "sponge":{
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type":"apoli:execute_command",
+            "command": "function overhaul:evaporate_water"
+        },
+        "interval": 20
+    },
+    "burn":{
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "apoli:set_on_fire",
+            "duration": 10000000
+        },
+        "interval": 10
+    },
+    "death":{
+        "type": "apoli:action_on_death",
+        "bientity_action": {
+            "type": "apoli:target_action",
+            "action": {
+                "type": "apoli:remove_power",
+                "power": "*:*"
+            }
+        }
+    }
+}

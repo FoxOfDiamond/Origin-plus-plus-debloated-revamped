@@ -1,0 +1,11 @@
+{
+    "type":"origins:inventory",
+    "title":"Pocket",
+    "name":"Pocket",
+    "description":"You can store up to 9 slots in your mouth that saves upon death",
+    "drop_on_death":false,
+    "key":"key.inventory",
+    "condition": {
+        "type": "origins:sneaking"
+    }
+}

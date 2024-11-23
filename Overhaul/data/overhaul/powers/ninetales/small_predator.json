@@ -1,0 +1,55 @@
+{
+    "type": "apoli:multiple",
+    "name":"Small predator",
+    "description":"You are smaller and more agile, but has 9 hearts and can only eat meat",
+    "carnivore":{
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+          "type": "origins:and",
+          "conditions": [
+            {
+              "type": "origins:or",
+              "conditions": [
+                {
+                  "type": "origins:ingredient",
+                  "ingredient": {
+                    "tag": "origins:meat"
+                  }
+                }
+              ],
+              "inverted": true
+            },
+            {
+              "type": "origins:food"
+            },
+            {
+              "type": "origins:ingredient",
+              "ingredient": {
+                "tag": "origins:ignore_diet"
+              },
+              "inverted": true
+            }
+          ]
+        }
+      },
+    "nine_lives":{
+        "type": "origins:attribute",
+        "modifier": {
+            "id":"small_predator",
+            "attribute": "minecraft:generic.max_health",
+            "amount": -2,
+            "operation": "add_value"
+        }
+    },
+    "size":{
+        "type": "apoli:action_on_callback",
+        "entity_action_added": {
+            "type": "apoli:execute_command",
+            "command": "/function overhaul:ninetales_size"
+        },
+        "entity_action_lost": {
+            "type": "apoli:execute_command",
+            "command": "/scale reset @s"
+        }
+    }
+}

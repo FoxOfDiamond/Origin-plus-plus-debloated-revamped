@@ -1,0 +1,28 @@
+{
+    "type": "apoli:multiple",
+    "hidden": true,
+    "particles":{
+        "type":"origins:action_over_time",
+        "entity_action":{
+            "type":"origins:execute_command",
+            "command":"particle minecraft:flame ~ ~ ~ 2 2 2 1 15"
+        },
+        "interval":10,
+        "hidden":true
+    },
+    "fac":{
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:is_fall"
+                },
+                {
+                    "type": "origins:fire"
+                }
+            ]
+        }
+      }
+}

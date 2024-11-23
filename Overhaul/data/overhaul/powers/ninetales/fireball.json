@@ -1,0 +1,488 @@
+{
+    "type": "origins:multiple",
+    "name":"Willow",
+    "description":"You can expend heat to charge up a fireball of variable power",
+    "power":{
+        "type": "apoli:resource",
+        "min": 0,
+        "max": 1000,
+        "hidden": true,
+        "hud_render": {
+            "sprite_location": "overhaul:resource_bar.png",
+        "order": 2,
+            "bar_index": 3,
+            "condition": {
+                "type": "apoli:and",
+                "conditions": [
+                    {
+                        "type": "apoli:resource",
+                        "compare_to": 0,
+                        "comparison": ">",
+                        "resource": "*:*_power"
+                    },
+                    {
+                        "type": "apoli:resource",
+                        "compare_to": 250,
+                        "comparison": "<=",
+                        "resource": "*:*_power"
+                    },
+                    {
+                        "type": "apoli:and",
+                        "inverted": true,
+                        "conditions": [
+                            
+                    {
+                        "type": "apoli:in_block_anywhere",
+                        "block_condition": {
+                            "type": "apoli:block",
+                            "block": "minecraft:fire"
+                        }
+                    },
+                    {
+                        "type": "apoli:on_block",
+                        "block_condition": {
+                            "type": "apoli:in_tag",
+                            "tag": "dirt"
+                        }
+                    }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "power_stage_1":{
+        "type": "apoli:resource",
+        "min": 0,
+        "max": 1000,
+        "hidden": true,
+        "hud_render": {
+            "sprite_location": "overhaul:resource_bar.png",
+        "order": 2,
+            "bar_index": 4,
+            "condition": {
+                "type": "apoli:and",
+                "conditions": [
+                    {
+                        "type": "apoli:resource",
+                        "compare_to": 250,
+                        "comparison": ">",
+                        "resource": "*:*_power"
+                    },
+                    {
+                        "type": "apoli:resource",
+                        "compare_to": 500,
+                        "comparison": "<=",
+                        "resource": "*:*_power"
+                    }
+                ]
+            }
+        }
+    },
+    "power_stage_2":{
+        "type": "apoli:resource",
+        "min": 0,
+        "max": 1000,
+        "hidden": true,
+        "hud_render": {
+            "sprite_location": "overhaul:resource_bar.png",
+        "order": 2,
+            "bar_index": 5,
+            "condition": {
+                "type": "apoli:and",
+                "conditions": [
+                    {
+                        "type": "apoli:resource",
+                        "compare_to": 500,
+                        "comparison": ">",
+                        "resource": "*:*_power"
+                    },
+                    {
+                        "type": "apoli:resource",
+                        "compare_to": 990,
+                        "comparison": "<=",
+                        "resource": "*:*_power"
+                    }
+                ]
+            }
+        }
+    },
+    "power_stage_3":{
+        "type": "apoli:resource",
+        "min": 0,
+        "max": 1000,
+        "hidden": true,
+        "hud_render": {
+            "sprite_location": "overhaul:resource_bar.png",
+        "order": 2,
+            "bar_index": 6,
+            "condition": {
+                "type": "apoli:resource",
+                "compare_to": 990,
+                "comparison": ">",
+                "resource": "*:*_power"
+            }
+        }
+    },
+    "power_soul_fire":{
+        "type": "apoli:resource",
+        "min": 0,
+        "max": 1000,
+        "hidden": true,
+        "hud_render": {
+            "sprite_location": "overhaul:resource_bar.png",
+        "order": 2,
+            "bar_index": 13,
+            "condition": {
+                "type": "apoli:and",
+                "conditions": [
+                    {
+                        "type": "apoli:resource",
+                        "compare_to": 0,
+                        "comparison": ">",
+                        "resource": "*:*_power"
+                    },
+                    {
+                        "type": "apoli:resource",
+                        "compare_to": 250,
+                        "comparison": "<=",
+                        "resource": "*:*_power"
+                    },
+                    {
+                        "type": "apoli:in_block_anywhere",
+                        "block_condition": {
+                            "type": "apoli:block",
+                            "block": "minecraft:fire"
+                        }
+                    },
+                    {
+                        "type": "apoli:on_block",
+                        "block_condition": {
+                            "type": "apoli:in_tag",
+                            "tag": "dirt"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "cd":{
+        "type": "apoli:resource",
+        "min": 0,
+        "max": 1000,
+        "hidden": true,
+        "hud_render": {
+            "sprite_location": "overhaul:resource_bar.png",
+        "order": 2,
+            "bar_index": 7,
+            "condition": {
+                "type": "apoli:resource",
+                "compare_to": 0,
+                "comparison": ">",
+                "resource": "*:*_cd"
+            }
+        }
+    },
+    "cd_decay": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_cd",
+            "change": -15
+        },
+        "interval": 1
+    },
+    
+    "power_match":{
+        "type": "apoli:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:modify_resource",
+                    "resource": "*:*_power_stage_1",
+                    "modifier":{
+                        "operation":"set_total",
+                        "resource": "*:*_power",
+                        "value": 1000
+                    }   
+                },
+                {
+                    "type": "apoli:modify_resource",
+                    "resource": "*:*_power_stage_2",
+                    "modifier":{
+                        "operation":"set_total",
+                        "resource": "*:*_power",
+                        "value": 1000
+                    }   
+                },
+                {
+                    "type": "apoli:modify_resource",
+                    "resource": "*:*_power_stage_3",
+                    "modifier":{
+                        "operation":"set_total",
+                        "resource": "*:*_power",
+                        "value": 1000
+                    }   
+                },
+                {
+                    "type": "apoli:modify_resource",
+                    "resource": "*:*_power_soul_fire",
+                    "modifier":{
+                        "operation":"set_total",
+                        "resource": "*:*_power",
+                        "value": 1000
+                    }   
+                }
+            ]
+        }
+    },
+    "n": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+
+    "decay": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_n",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "key": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_n",
+                    "change": 2
+                }
+            ]
+        },
+        "cooldown": 0,
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": true
+        },
+        "condition": {
+            "type": "apoli:resource",
+            "compare_to": 0,
+            "comparison": "==",
+            "resource": "*:*_cd"
+        }
+    },
+
+
+    "hold_or_release": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type":"apoli:if_else",
+            "condition":{
+                "type": "apoli:and",
+                "conditions": [
+                    {
+                        "type": "apoli:resource",
+                        "compare_to": 1000,
+                        "resource": "*:*_power",
+                        "comparison": "<"
+                    },
+                    {
+                        "type": "apoli:resource",
+                        "compare_to": 10,
+                        "resource": "overhaul:ninetales/heat_bar_heat",
+                        "comparison": ">"
+                    }
+                ]
+            },
+            "if_action":{
+                "type": "apoli:if_else",
+                "condition": {
+                    "type": "apoli:resource",
+                    "resource": "*:*_power",
+                    "compare_to": 500,
+                    "comparison": ">"
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_power",
+                        "operation": "add",
+                        "change": 10
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "overhaul:ninetales/heat_bar_heat",
+                        "operation": "add",
+                        "change": -20
+                    },
+                    {
+                        "type": "apoli:execute_command",
+                        "command": "/particle minecraft:lava ~ ~ ~ 0.6 0.2 0.6 10 3"
+                    }
+                    ] 
+                },
+                "else_action": {
+                    "type": "origins:and",
+                    "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_power",
+                        "operation": "add",
+                        "change": 50    
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "overhaul:ninetales/heat_bar_heat",
+                        "operation": "add",
+                        "change": -20
+                    },
+                    {
+                        "type": "apoli:execute_command",
+                        "command": "/particle minecraft:lava ~ ~ ~ 0.3 0 0.3 10 1"
+                    }
+                    ] 
+                }
+            },
+            "else_action": {
+                "type": "apoli:if_else",
+                "condition": {
+                    "type": "apoli:resource",
+                    "resource": "*:*_power",
+                    "compare_to": 500,
+                    "comparison": ">"
+                },
+                "if_action": {
+                    "type": "apoli:execute_command",
+                    "command": "/particle minecraft:lava ~ ~ ~ 0.6 0.2 0.6 10 2"
+                },
+                "else_action": 
+                {
+                    "type": "apoli:execute_command",
+                    "command": "/particle minecraft:lava ~ ~ ~ 0.3 0 0.3 10 1"
+                }
+            }
+        },
+        "interval": 1,
+        "falling_action": {
+            "type": "apoli:and",
+            "actions": [
+                {"type": "apoli:if_else_list",
+                    "actions": [
+                    {
+                            "condition": {
+                                "type": "apoli:resource",
+                                "resource": "*:*_power",
+                                "compare_to": 990,
+                                "comparison": ">"
+                        },
+                            "action": {
+                                "type": "apoli:fire_projectile",
+                                "entity_type": "minecraft:fireball",
+                                "tag":{"ExplosionPower":3},
+                                "speed": 0.1
+                        }
+                    },
+                    {
+                    "condition": {
+                        "type": "apoli:resource",
+                        "resource": "*:*_power",
+                        "compare_to": 500,
+                        "comparison": ">"
+                    },
+                    "action": {
+                        "type": "apoli:fire_projectile",
+                        "speed": 0.5,
+                        "entity_type": "minecraft:small_fireball"
+                    }
+                    },
+                    {
+                    "condition": {
+                        "type": "apoli:resource",
+                        "resource": "*:*_power",
+                        "compare_to": 250,
+                        "comparison": ">"
+                    },
+                    "action": {
+                        "type": "apoli:fire_projectile",
+                        "entity_type": "minecraft:fireball",
+                        "speed": 5,
+                        "tag":{"ExplosionPower":0.9}
+                    }
+                    }
+                ]
+            },
+            {
+                "type": "apoli:modify_resource",
+                "resource": "*:*_cd",
+                "modifier":{
+                    "operation":"set_total",
+                    "resource": "*:*_power",
+                    "value": 1000
+                }
+            },
+            {
+                "type": "apoli:if_else",
+            "condition": {
+                "type": "apoli:resource",
+                "resource": "*:*_power",
+                "compare_to": 250,
+                "comparison": "<="
+            },
+            "if_action": {
+                "type": "apoli:and",
+                "actions": [
+                {
+                    "type": "apoli:if_else",
+                    "condition": {
+                        "type": "apoli:in_block_anywhere",
+                        "block_condition": {
+                            "type": "apoli:block",
+                            "block": "minecraft:fire"
+                        }
+                    },
+                    "if_action": {
+                        "type": "apoli:execute_command",
+                        "command": "/fill ~ ~-1 ~ ~ ~-1 ~ minecraft:soul_sand replace #minecraft:dirt"
+                    }
+                },
+                    {
+                        "type": "apoli:execute_command",
+                        "command": "/fill ~ ~ ~ ~ ~1 ~ fire replace air"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_cd",
+                        "operation": "set",
+                        "change": 250
+                    }
+                ]
+            }
+            },
+            {
+                "type": "apoli:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_n",
+            "comparison": ">",
+            "compare_to": 1
+        }
+    }
+}

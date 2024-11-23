@@ -1,0 +1,365 @@
+{
+    "name": "Heat",
+    "description":"Heat is your main resource when using powers, but be careful as if you run out you will freeze to death",
+    "type": "apoli:multiple",
+    "heat":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 900,
+        "hud_render": {
+            "sprite_location": "overhaul:resource_bar.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "apoli:resource",
+                "resource": "*:*_heat",
+                "compare_to": 500,
+                "comparison": ">"
+            },
+            "order": 0 
+        }
+    },
+    "respawn-heat":{
+        "type": "apoli:action_on_callback",
+        "entity_action_respawned": {
+            "type": "apoli:change_resource",
+            "operation": "set",
+            "resource": "*:*_heat",
+            "change": 1200
+        }
+    },
+    "freeze-timer":{
+        "type": "apoli:resource",
+        "min": 0,
+        "max": 0
+    },
+    "freeze-passive":{
+        "type": "apoli:freeze",
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:on_fire",
+                    "inverted": true
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_heat",
+                    "compare_to": 500,
+                    "comparison": "<="
+
+                }
+            ]
+        }
+    },
+    "cold":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 1000,
+        "hud_render": {
+            "sprite_location": "overhaul:resource_bar.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "apoli:resource",
+                "resource": "*:*_heat",
+                "compare_to": 500,
+                "comparison": "<="
+            }
+        },
+        "order": 0
+    },
+    "shiver":{
+        "type": "apoli:shaking",
+        "condition": {
+            "type": "apoli:resource",
+            "resource": "*:*_heat",
+            "compare_to": 500,
+            "comparison": "<="
+        }
+    },
+    "match":{
+        "type": "apoli:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "apoli:modify_resource",
+            "resource": "*:*_cold",
+            "modifier":{
+                "resource": "*:*_heat",
+                "operation":"set_total",
+                "value": 1000
+            }
+        }
+    },
+    "freeze-100":{
+        "type": "apoli:damage_over_time",
+        "damage_type": "minecraft:freeze",
+        "damage": 1,
+        "interval": 30,
+        "onset_delay": 15,
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_heat",
+                    "compare_to": 500,
+                    "comparison": "<="
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_heat",
+                    "compare_to": 400,
+                    "comparison": ">"
+                }
+            ]
+        }
+    },
+    "freeze-200":{
+        "type": "apoli:damage_over_time",
+        "damage_type": "minecraft:freeze",
+        "damage": 1,
+        "interval": 20,
+        "onset_delay": 10,
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_heat",
+                    "compare_to": 400,
+                    "comparison": "<="
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_heat",
+                    "compare_to": 300,
+                    "comparison": ">"
+                }
+            ]
+        }
+    },
+    "freeze-300":{
+        "type": "apoli:damage_over_time",
+        "damage_type": "minecraft:freeze",
+        "damage": 1.5,
+        "interval": 10,
+        "onset_delay": 5,
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_heat",
+                    "compare_to": 300,
+                    "comparison": "<="
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_heat",
+                    "compare_to": 200,
+                    "comparison": ">"
+                }
+            ]
+        }
+    },
+    "freeze-400":{
+        "type": "apoli:damage_over_time",
+        "damage_type": "minecraft:freeze",
+        "damage": 1.5,
+        "interval": 8,
+        "onset_delay": 4,
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_heat",
+                    "compare_to": 200,
+                    "comparison": "<="
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_heat",
+                    "compare_to": 100,
+                    "comparison": ">"
+                }
+            ]
+        }
+    },
+    "freeze-500":{
+        "type": "apoli:damage_over_time",
+        "damage_type": "minecraft:freeze",
+        "damage": 2,
+        "interval": 6,
+        "onset_delay": 3,
+        "condition": {
+            "type": "apoli:resource",
+            "resource": "*:*_heat",
+            "compare_to": 100,
+            "comparison": "<="
+        }
+    },
+    "biome":{
+        "type": "apoli:action_over_time",
+        "interval":1,
+        "entity_action": {
+            "type": "apoli:if_else",
+            "condition": {
+                "type":"apoli:biome",
+                "condition": {
+                    "type": "apoli:temperature",
+                    "compare_to": 0.8,
+                    "comparison":">="
+                }
+            },
+            "if_action": {
+                "type": "apoli:change_resource",
+                "operation": "add",
+                "resource": "*:*_heat",
+                "change": 1
+            },
+            "if_else": {
+                "type": "apoli:change_resource",
+                "operation": "add",
+                "resource": "*:*_heat",
+                "change": -2
+            }
+        }
+    },
+    "on_fire_recover":{
+        "hidden": true,
+        "type": "apoli:action_over_time",
+        "interval":2,
+        "condition": {
+            "type":"apoli:on_fire"
+        },
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "operation": "add",
+            "resource": "*:*_heat",
+            "change": 1
+        }
+    },
+    "near_campfire_recover":{
+        "hidden": true,
+        "type": "apoli:action_over_time",
+        "interval":2,
+        "condition": {
+            "type":"apoli:block_in_radius",
+            "radius": 3,
+            "block_condition": {
+                "type": "apoli:block",
+                "block": "minecraft:campfire"
+            }
+        },
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "operation": "add",
+            "resource": "*:*_heat",
+            "change": 1
+        }
+    },
+    "near_soul_campfire_recover":{
+        "hidden": true,
+        "type": "apoli:action_over_time",
+        "interval":3,
+        "condition": {
+            "type":"apoli:block_in_radius",
+            "radius": 4,
+            "block_condition": {
+                "type": "apoli:block",
+                "block": "minecraft:soul_campfire"
+            }
+        },
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "operation": "add",
+            "resource": "*:*_heat",
+            "change": 2
+        }
+    },
+    "in_fire_recover":{
+        "hidden": true,
+        "type": "apoli:action_over_time",
+        "interval":3,
+        "condition": {
+            "type":"apoli:in_block_anywhere",
+            "block_condition": {
+                "type": "apoli:block",
+                "block": "minecraft:fire"
+            }
+        },
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "operation": "add",
+            "resource": "*:*_heat",
+            "change": 1
+        }
+    },
+    "in_soul_fire_recover":{
+        "hidden": true,
+        "type": "apoli:action_over_time",
+        "interval":3,
+        "condition": {
+            "type":"apoli:in_block_anywhere",
+            "block_condition": {
+                "type": "apoli:block",
+                "block": "minecraft:soul_fire"
+            }
+        },
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "operation": "add",
+            "resource": "*:*_heat",
+            "change": 2
+        }
+    },
+    "nether_recover":{
+        "hidden": true,
+        "type": "apoli:action_over_time",
+        "interval":2,
+        "condition": {
+            "type":"apoli:dimension",
+            "dimension": "minecraft:the_nether"
+        },
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "operation": "add",
+            "resource": "*:*_heat",
+            "change": 1
+        }
+    },
+    "end_drain":{
+        "hidden": true,
+        "type": "apoli:action_over_time",
+        "interval":1,
+        "condition": {
+            "type":"apoli:dimension",
+            "dimension": "minecraft:the_end"
+        },
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "operation": "add",
+            "resource": "*:*_heat",
+            "change": -1
+        }
+    },
+    "lava_recover":{
+        "hidden": true,
+        "type": "apoli:action_over_time",
+        "interval":1,
+        "condition": {
+            "type":"apoli:fluid_height",
+            "fluid": "minecraft:lava",
+            "compare_to": 0,
+            "comparison": ">"
+        },
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "operation": "add",
+            "resource": "*:*_heat",
+            "change": 5
+        }
+    }
+}

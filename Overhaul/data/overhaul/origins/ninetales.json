@@ -1,0 +1,23 @@
+{
+	"name": "Ninetales",
+	"description": "A fiesty fiery beast",
+	"powers":[
+		"overhaul:ninetales/heat_bar",
+		"overhaul:ninetales/water_weakness",
+
+		"overhaul:ninetales/fireball",
+		"overhaul:ninetales/lunge",
+		
+		"overhaul:ninetales/hidden_passive",
+		"overhaul:ninetales/fiery_acrobatics",
+		"overhaul:ninetales/small_predator",
+		"overhaul:ninetales/pocket",
+
+		"overhaul:ninetales/bottled_fire_recipe"
+
+	],
+	"icon":{
+		"id":"minecraft:blaze_rod"
+	},
+	"impact":3
+}

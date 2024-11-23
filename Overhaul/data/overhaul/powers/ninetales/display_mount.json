@@ -1,0 +1,24 @@
+{
+    "type": "apoli:multiple",
+    "mount":{
+        "type":"apoli:action_when_hit",
+        "bientity_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:invert",
+                    "action": {
+                        "type": "apoli:mount"
+                    }
+                },
+                {
+                    "type": "apoli:target_action",
+                    "action": {
+                        "type": "apoli:execute_command",
+                        "command": "say ow"
+                    }
+                }
+            ]
+        }
+    }
+}

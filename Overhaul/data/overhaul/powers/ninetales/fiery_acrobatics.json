@@ -1,0 +1,24 @@
+{
+    "name":"Fiery acrobatics",
+    "description":"You can run on lava and is immune to fall damage",
+    "type": "apoli:multiple",
+    "lava_walk":{
+        "type": "apoli:walk_on_fluid",
+        "fluid": "minecraft:lava",
+        "condition": {
+            "type": "apoli:sprinting"
+        }
+    },
+    "lava_vision":{
+        "type": "apoli:lava_vision",
+        "v": 5,
+        "s": 0
+    },
+    "lava_speed":{
+        "type": "apoli:modify_lava_speed",
+        "modifier":{
+            "value": 0.3,
+            "operation":"addition"
+        }
+    }
+}

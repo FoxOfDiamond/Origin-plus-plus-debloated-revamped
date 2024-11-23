@@ -1,0 +1,45 @@
+
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "item": "minecraft:lava_bucket"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        }
+    ],
+    "result": {
+        "id": "minecraft:honey_bottle",
+        "count": 8,
+        "components":{
+            "custom_name":"{\"text\":\"Bottle of Fire\",\"italic\":false,\"color\":\"gold\"}",
+            "lore":[
+                "{\"text\":\"Drink to regain some heat and hunger\",\"italic\":false}"
+            ],
+            "custom_data":"{\"overhaul\":\"bottle_of_fire\"}",
+            "custom_model_data":1
+        }
+    }
+}
