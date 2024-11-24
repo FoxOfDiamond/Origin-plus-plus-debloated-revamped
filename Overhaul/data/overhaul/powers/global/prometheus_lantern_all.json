@@ -27,6 +27,34 @@
             }
         }
     },
+    "charge_pocket":{
+        "type": "apoli:action_over_time",
+        "interval": 1200,
+        "entity_action": {
+            "type": "apoli:modify_inventory",
+            "inventory_type": "power",
+            "item_condition": {
+                "type": "apoli:and",
+                "conditions": [
+                    {
+                        "type": "apoli:ingredient",
+                        "ingredient":{
+                            "item": "minecraft:tinted_glass"
+                        }
+                        
+                    },
+                    {
+                        "type": "apoli:custom_data",
+                        "nbt":"{overhaul:prometheus_lantern}"
+                    }
+                ]
+            },
+            "item_action": {
+                "type": "apoli:modify",
+                "modifier": "overhaul:add_damage_10m"
+            }
+        }
+    },
     "reset_cd":{
         "type": "apoli:action_over_time",
         "interval": 1,
