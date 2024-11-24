@@ -29,10 +29,40 @@
     },
     "charge_pocket":{
         "type": "apoli:action_over_time",
-        "interval": 1200,
+        "interval": 800,
         "entity_action": {
             "type": "apoli:modify_inventory",
             "inventory_type": "power",
+            "power": "overhaul:ninetales/pocket",
+            "item_condition": {
+                "type": "apoli:and",
+                "conditions": [
+                    {
+                        "type": "apoli:ingredient",
+                        "ingredient":{
+                            "item": "minecraft:tinted_glass"
+                        }
+                        
+                    },
+                    {
+                        "type": "apoli:custom_data",
+                        "nbt":"{overhaul:prometheus_lantern}"
+                    }
+                ]
+            },
+            "item_action": {
+                "type": "apoli:modify",
+                "modifier": "overhaul:add_damage_10m"
+            }
+        }
+    },
+    "charge_pouch":{
+        "type": "apoli:action_over_time",
+        "interval": 1000,
+        "entity_action": {
+            "type": "apoli:modify_inventory",
+            "inventory_type": "power",
+            "power": "opp:wanderer/bag",
             "item_condition": {
                 "type": "apoli:and",
                 "conditions": [
