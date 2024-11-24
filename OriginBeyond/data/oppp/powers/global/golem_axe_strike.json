@@ -7,19 +7,26 @@
             "y": 0.5
         }
     },
-    "conditions": [
-        {
-            "type": "apoli:ingredient",
-            "ingredient":{
-                "item": "minecraft:stone_axe"
-            }
-            
-        },
-        {
-            "type": "apoli:custom_data",
-            "nbt": "{oppp:golems_wrath}"
+    "condition": {
+        "type": "apoli:equipped_item",
+        "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:ingredient",
+                    "ingredient":{
+                        "item": "minecraft:stone_axe"
+                    }
+                    
+                },
+                {
+                    "type": "apoli:custom_data",
+                    "nbt": "{oppp:golems_wrath}"
+                }
+            ]
         }
-    ],
+    },
     "cooldown": 0,
     "name": "Golem Axe power thing",
     "description": "This text is literally unreadable in game lmao"
