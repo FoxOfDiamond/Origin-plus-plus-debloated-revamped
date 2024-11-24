@@ -1,5 +1,5 @@
 {
 	"values":[
-        "overhaul:global_load"
+        "overhaul:global_functions/global_load"
     ]
 }

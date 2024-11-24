@@ -45,7 +45,7 @@
         "type": "apoli:action_on_callback",
         "entity_action_added": {
             "type": "apoli:execute_command",
-            "command": "/function overhaul:ninetales_size"
+            "command": "/function overhaul:ninetales_functions/ninetales_size"
         },
         "entity_action_lost": {
             "type": "apoli:execute_command",

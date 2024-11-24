@@ -6,19 +6,19 @@
         "type": "apoli:action_on_callback",
         "entity_action_gained": {
             "type": "apoli:execute_command",
-            "command": "/function overhaul:tails_load"
+            "command": "/function overhaul:ninetales_functions/tails_load"
 
         },
         "entity_action_lost": {
             "type": "apoli:execute_command",
-            "command": "function overhaul:tails_kill"
+            "command": "function overhaul:ninetales_functions/tails_kill"
         }
     },
     "tick":{
         "type": "apoli:action_over_time",
         "entity_action": {
             "type": "apoli:execute_command",
-            "command": "/function overhaul:tails_tick"
+            "command": "/function overhaul:ninetales_functions/tails_tick"
 
         },
         "interval": 1
