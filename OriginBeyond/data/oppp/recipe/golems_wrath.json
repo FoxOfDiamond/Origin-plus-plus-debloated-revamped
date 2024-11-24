@@ -36,8 +36,13 @@
                 "show_in_tooltip": false
             },
             "custom_data":"{\"oppp\":\"golems_wrath\"}",
-            "custom_model_data": 1
-            
+            "custom_model_data": 1,
+            "apoli:powers":[
+                {
+                    "slot": "mainhand",
+                    "power": "oppp:items/golem_axe_strike"
+                }
+            ]
         }
     }
 }
