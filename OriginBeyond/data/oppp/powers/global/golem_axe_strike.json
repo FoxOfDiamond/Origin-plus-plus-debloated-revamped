@@ -4,10 +4,22 @@
         "type": "origins:target_action",
         "action": {
             "type": "origins:add_velocity",
-            "y": 10,
-            "z": 2
+            "y": 0.5
         }
     },
+    "conditions": [
+        {
+            "type": "apoli:ingredient",
+            "ingredient":{
+                "item": "minecraft:stone_axe"
+            }
+            
+        },
+        {
+            "type": "apoli:custom_data",
+            "nbt": "{oppp:golems_wrath}"
+        }
+    ],
     "cooldown": 0,
     "name": "Golem Axe power thing",
     "description": "This text is literally unreadable in game lmao"
