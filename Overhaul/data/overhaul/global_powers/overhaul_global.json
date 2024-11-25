@@ -2,5 +2,8 @@
     "powers": [
         "overhaul:global/bottle_of_fire_use",
         "overhaul:global/prometheus_lantern_all"
+    ],
+    "entity_types": [
+        "minecraft:player"
     ]
 }
