@@ -38,10 +38,6 @@
                 {
                     "slot": "mainhand",
                     "power": "oppp:items/arson"
-                },
-                {
-                    "slot": "offhand",
-                    "power": "oppp:items/arson"
                 }
             ]
         }

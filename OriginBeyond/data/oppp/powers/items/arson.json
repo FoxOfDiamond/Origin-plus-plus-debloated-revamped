@@ -7,23 +7,51 @@
         "entity": true,
         "shape_type": "collider",
         "fluid_handling": "source_only",
-        "bientity_action": {
-            "type": "origins:target_action",
-            "action":{
-                "type": "origins:set_on_fire",
-                "duration": 5
+        "before_action": {
+            "type": "origins:equipped_item_action",
+            "equipment_slot": "offhand",
+            "action": {
+                "type": "origins:consume"
             }
+        },
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:target_action",
+                    "action":{
+                        "type": "origins:set_on_fire",
+                        "duration": 2
+                    }
+                },
+                {
+                    "type": "origins:target_action",
+                    "action":{
+                        "type": "apoli:damage",
+                        "amount": 4,
+                        "damage_type": "minecraft:on_fire"
+                    }
+                }
+            ]
         },
         "block_action": {
             "type": "apoli:add_block",
             "block": "minecraft:fire"
         },
         "command_step": 1,
-        "command_along_ray": "particle lava ~ ~ ~ 0 0 0 0.2 1 normal"
+        "command_along_ray": "particle lava ~ ~ ~ 0 0 0 0.2 2 normal"
     },
-    "cooldown": 0,
+    "cooldown": 3,
     "hud_render": {
         "should_render": false
+    },
+    "condition": {
+        "type": "origins:equipped_item",
+        "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{oppp:flamethrower_ammo}"
+        }
     },
     "key": {
         "key": "key.use",

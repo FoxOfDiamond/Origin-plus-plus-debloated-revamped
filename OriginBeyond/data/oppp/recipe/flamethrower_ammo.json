@@ -1,0 +1,39 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:blaze_powder"
+        }
+    },
+    "result": {
+        "id": "minecraft:barrier",
+        "count": 10,
+        "components": {
+            "custom_name": "{\"text\":\"Flamethrower Ammo\",\"italic\":false,\"color\":\"gold\"}",
+            "lore": [
+                "{\"text\":\"For use with Flamethrower\",\"italic\":false,\"color\":\"dark_purple\"}",
+                "{\"text\":\"Can be stacked up to 99\",\"italic\":false,\"color\":\"green\"}"
+            ],
+            "custom_model_data": 1,
+            "custom_data":"{\"oppp\":\"flamethrower_ammo\"}",
+            "max_stack_size": 99,
+            "attribute_modifiers": {
+                "modifiers":[],
+                "show_in_tooltip": false  
+            },
+            "apoli:powers":[
+                {
+                    "slot": "mainhand",
+                    "power": "oppp:items/disableplace"
+                },
+                {
+                    "slot": "offhand",
+                    "power": "oppp:items/disableplace"
+                }
+            ]
+        }
+    }
+}
