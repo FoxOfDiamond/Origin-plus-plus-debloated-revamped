@@ -1,0 +1,45 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " / ",
+        "FCF",
+        " / "
+    ],
+    "key": {
+        "/": {
+            "item": "minecraft:blaze_rod"
+        },
+        "F": {
+            "item": "minecraft:fire_charge"
+        },
+        "C": {
+            "item": "minecraft:crossbow"
+        }
+    },
+    "result": {
+        "id": "minecraft:warped_fungus_on_a_stick",
+        "count": 1,
+        "components": {
+            "custom_name": "{\"text\":\"Flamethrower\",\"italic\":false,\"color\":\"gold\"}",
+            "lore": [
+                "{\"text\":\"ARSON\",\"italic\":false,\"color\":\"dark_purple\"}",
+                "{\"text\":\"Ammunition required\",\"italic\":false,\"color\":\"red\"}"
+            ],
+            "unbreakable": {
+                "show_in_tooltip": true
+            },
+            "custom_model_data": 1,
+            "custom_data":"{\"oppp\":\"flamethrower\"}",
+            "apoli:powers":[
+                {
+                    "slot": "mainhand",
+                    "power": "oppp:items/arson"
+                },
+                {
+                    "slot": "offhand",
+                    "power": "oppp:items/arson"
+                }
+            ]
+        }
+    }
+}

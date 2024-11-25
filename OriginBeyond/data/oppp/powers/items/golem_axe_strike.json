@@ -1,30 +1,35 @@
 {
     "type":"origins:target_action_on_hit",
     "entity_action": {
-        "type":"apoli:delay",
+        "type":"origins:delay",
         "ticks": 1,
         "action":{
             "type": "origins:and",
             "actions":[
                 {
                     "type": "origins:add_velocity",
-                    "y": 0.5
+                    "y": 0.7
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.iron_golem.attack",
+                    "volume": 1
                 }
             ]
         }   
     },
     "condition": {
-        "type": "apoli:and",
+        "type": "origins:and",
         "conditions": [
             {
-                "type": "apoli:sprinting"
+                "type": "origins:sprinting"
             }
         ]
     },
-    "cooldown": 50,
+    "cooldown": 25,
     "hud_render":{
         "should_render": true,
-		"bar_index": 4
+		"bar_index": 2
 	},
     "name": "Golem Axe power thing",
     "description": "This text is literally unreadable in game lmao"
