@@ -30,6 +30,10 @@
             },
             "custom_model_data": 1,
             "custom_data":"{\"oppp\":\"flamethrower\"}",
+            "attribute_modifiers": {
+                "modifiers":[],
+                "show_in_tooltip": false  
+            },
             "apoli:powers":[
                 {
                     "slot": "mainhand",
