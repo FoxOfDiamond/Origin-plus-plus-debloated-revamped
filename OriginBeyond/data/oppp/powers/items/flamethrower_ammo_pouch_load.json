@@ -1,0 +1,114 @@
+{
+    "type": "apoli:multiple",
+    "charge":{
+        "type": "apoli:active_self",
+        "key": {
+            "key": "key.use",
+            "continuous": true
+        },
+        "entity_action": {
+            "type": "apoli:if_else",
+            "condition": {
+                "type": "apoli:sneaking"
+            },
+            "if_action": {
+                "type": "apoli:if_else",
+                "condition": {
+                    "type": "apoli:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "apoli:durability",
+                        "compare_to": 0,
+                        "comparison": ">"
+                    }
+                },
+                "if_action": {
+                    "type": "apoli:and",
+                    "actions": [
+                        {
+                            "type": "apoli:equipped_item_action",
+                            "equipment_slot": "offhand",
+                            "action": {
+                                "type": "apoli:damage",
+                                "amount": 1
+                            }
+                        },
+                        {
+                            "type": "apoli:if_else",
+                            "condition": {
+                                "type": "apoli:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "apoli:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:custom_data",
+                                            "nbt": "{oppp:flamethrower_ammo}"
+                                        },{
+                                            "type": "apoli:amount",
+                                            "compare_to": 99,
+                                            "comparison": "<"
+                                        }
+                                    ]
+                                }
+                            },
+                            "if_action": {
+                                "type": "apoli:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "apoli:consume",
+                                    "amount": -1
+                                }
+                            },
+                            "else_action": {
+                                "type": "apoli:execute_command",
+                                "command": "give @s minecraft:barrier[minecraft:custom_model_data=1,minecraft:max_stack_size=99,minecraft:custom_data={\"oppp\":\"flamethrower_ammo\"},minecraft:custom_name='{\"text\":\"Flamethrower Ammo\",italic:false,\"color\":\"gold\"}',minecraft:lore=['{\"text\":\"For use with Flamethrower\",\"italic\":false,\"color\":\"dark_purple\"}','{\"text\":\"Can be stacked up to 99\",\"italic\":false,\"color\":\"green\"}'],minecraft:attribute_modifiers={\"modifiers\":[],\"show_in_tooltip\":false},apoli:powers=[{\"slot\":\"mainhand\",\"power\":\"oppp:items/disableplace\"},{\"slot\":\"offhand\",\"power\":\"oppp:items/disableplace\"}]]"
+                            }
+                        }
+                    ]
+                }
+            },
+            "else_action": {
+                "type": "apoli:if_else",
+                "condition": {
+                    "type": "apoli:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:custom_data",
+                        "nbt": "{oppp:flamethrower_ammo}"
+                    }
+                },
+                "if_action": {
+                    "type": "apoli:and",
+                    "actions": [
+                        {
+                            "type": "apoli:equipped_item_action",
+                            "equipment_slot": "offhand",
+                            "action": {
+                                "type": "apoli:damage",
+                                "amount": -1
+                            }
+                        },
+                        {
+                            "type": "apoli:equipped_item_action",
+                            "equipment_slot": "mainhand",
+                            "action": {
+                                "type": "apoli:consume",
+                                "amount": 1
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "disable":{
+        "type": "origins:prevent_block_place",
+        "item_condition": {
+            "type": "apoli:ingredient",
+            "ingredient":{
+                "item": "minecraft:barrier"
+            }
+        }
+    }
+}

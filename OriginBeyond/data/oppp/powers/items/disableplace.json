@@ -1,3 +1,9 @@
 {
-    "type": "origins:prevent_block_place"
+    "type": "origins:prevent_block_place",
+    "item_condition": {
+        "type": "apoli:ingredient",
+        "ingredient":{
+            "item": "minecraft:barrier"
+        }
+    }
 }

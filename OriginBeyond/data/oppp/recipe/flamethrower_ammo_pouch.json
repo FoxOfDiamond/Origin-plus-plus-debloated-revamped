@@ -1,0 +1,53 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#S#",
+        "L#L",
+        "BLB"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:magma_cream"
+        },
+        "S": {
+            "item": "minecraft:torchflower"
+        },
+        "L": {
+            "item": "minecraft:leather"
+        },
+        "B": {
+            "item": "minecraft:blaze_rod"
+        }
+    },
+    "result": {
+        "id": "minecraft:barrier",
+        "count": 1,
+        "components": {
+            "custom_name": "{\"text\":\"Flamethrower ammo pouch\",\"italic\":false,\"color\":\"gold\"}",
+            "lore": [
+                "{\"text\":\"Can hold up to 1000 flamethrower ammo\",\"italic\":false,\"color\":\"dark_purple\"}",
+                "{\"text\":\"Usable directly with the flamethriwer\",\"italic\":false,\"color\":\"red\"}"
+            ],
+            "custom_model_data": 2,
+            "custom_data":"{\"oppp\":\"flamethrower_ammo_pouch\"}",
+            "max_stack_size": 1,
+            "attribute_modifiers": {
+                "modifiers":[],
+                "show_in_tooltip": false  
+            },
+            "apoli:powers":[
+                {
+                    "slot": "mainhand",
+                    "power": "oppp:items/disableplace"
+                },
+                {
+                    "slot": "offhand",
+                    "power": "oppp:items/flamethrower_ammo_pouch_load"
+                }
+            ],
+            "max_damage": 1000,
+            "damage": 1000,
+            "fire_resistant": {}
+        }
+    }
+}
