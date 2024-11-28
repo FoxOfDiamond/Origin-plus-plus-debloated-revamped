@@ -20,7 +20,8 @@
                     "tag": "minecraft:is_fall"
                 },
                 {
-                    "type": "origins:fire"
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:is_fire"
                 }
             ]
         }
