@@ -1,1 +1,0 @@
-execute at @s as @e[type=!player] if score @s overhaul_uid = @p overhaul_uid run kill @s

@@ -1,0 +1,31 @@
+{
+    "type":"origins:multiple",
+    "activate":{
+        "type":"apoli:active_self",
+        "key": {
+            "key":"key.saveToolbarActivator",
+            "continuous": true
+        },
+        "entity_action": {
+            "type":"origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function overhaul:ninetales_functions/fire_breath_spawn"
+                },
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "overhaul:ninetales/heat_bar_heat",
+                    "operation": "add",
+                    "change": -10
+                }
+            ]
+        }
+    },
+    "condition": {
+        "type": "apoli:resource",
+        "resource": "overhaul:ninetales/heat_bar_heat",
+        "compare_to": 0,
+        "comparison": ">"
+    }
+}
